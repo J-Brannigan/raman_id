@@ -4,7 +4,20 @@ from dotenv import load_dotenv
 
 load_dotenv()
 
-PROJECT_ROOT = Path(__file__).resolve().parents[2]
+def find_project_root() -> Path:
+    # Prefer the current working tree so notebooks still resolve repo-local data
+    # even when the package is imported from an installed environment.
+    candidates = [Path.cwd(), Path(__file__).resolve().parent]
+
+    for start in candidates:
+        for candidate in (start, *start.parents):
+            if (candidate / "pyproject.toml").exists():
+                return candidate
+
+    return Path(__file__).resolve().parents[2]
+
+
+PROJECT_ROOT = find_project_root()
 data_env = os.getenv("DATA_DIR")
 
 if data_env:

@@ -3,6 +3,10 @@ name = "raman-id"
 version = "0.1.0"
 dependencies = [
     "python-dotenv",
+    "notebook",
+    "pandas",
+    "matplotlib",
+    "h5py"
 ]
 
 [tool.setuptools.packages.find]

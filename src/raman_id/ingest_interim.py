@@ -13,7 +13,8 @@ pathlist = RAW_EXCELLENT_UNORIENTED_FOLDER.rglob('Abellaite*.txt')
 
 spectra={}
 for path in pathlist:
+    print(path)
     spectrum_name, spectrum = load_rruff_file(path)
     spectra[spectrum_name]=spectrum
 
-print(len(spectra))
+print(spectra)
