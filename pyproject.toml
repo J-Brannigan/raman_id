@@ -6,7 +6,8 @@ dependencies = [
     "notebook",
     "pandas",
     "matplotlib",
-    "h5py"
+    "h5py",
+    "tqdm"
 ]
 
 [tool.setuptools.packages.find]
